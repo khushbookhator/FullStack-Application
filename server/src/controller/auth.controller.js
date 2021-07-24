@@ -36,7 +36,7 @@ const signin = async(req, res) => {
             return res.status(401).json({status: "failed",message: "Incorrect Pasword"})
         }
         const token = newToken(doctor)
-        return res.status(201).json({token: token})
+        return res.status(201).json({token: token, data: doctor})
     }catch (e) {
         return res.status(500).json({status: "failed",message: "Something went wrong."})
     }

@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 const patientSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        text: true
     },
     age: {
         type: Number,
@@ -13,6 +14,7 @@ const patientSchema = new mongoose.Schema({
     gender: {
         type: String,
         required: true,
+        text: true
     },
     profile: {
         type:String,
@@ -24,8 +26,9 @@ const patientSchema = new mongoose.Schema({
         ref: "doctor"
     },
     medicines : [{
-        med_name: {type: String},
-        qty: {type: Number}
+        type: mongoose.Schema.Types.ObjectId, 
+        required: true, 
+        ref: "med" 
     }]
 },
 {
